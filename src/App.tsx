@@ -47,22 +47,42 @@ function App() {
   return (
     <div className='App'>
       <h1>TRIVIA QUIZ</h1>
-      <button className='start' onClick={startTrivia}>
-        START
-      </button>
-      <p className='score'>Score:</p>
-      <p>Loading Questions...</p>
-      {/* <QuestionCard
-        questionNum={number + 1}
-        totalQuestions={TOTAL_QUESTIONS}
-        question={questions[number].question}
-        answers={questions[number].answers}
-        userAnswer={userAnswers ? userAnswers[number] : undefined}
-        callback={checkAnswer}
-      /> */}
-      <button className='next' onClick={startTrivia}>
-        Next Question
-      </button>
+
+      {/* Start button  is only displayed if the game is over ||or if the user has answered the last question*/}
+      {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+        <button className='start' onClick={startTrivia}>
+          START
+        </button>
+      ) : null}
+
+      {/* Show score only when tha game is not over */}
+      {!gameOver ? <p className='score'>Score:</p> : null}
+
+      {/* Show loading if the questions are still loading */}
+      {/* {loading ? <p>Loading Questions...</p> : null} */}
+      {loading && <p>Loading Questions...</p>}
+
+      {/* Question card will only be shown IF we're not loading or we're not gameOver */}
+      {!loading && !gameOver && (
+        <QuestionCard
+          questionNum={number + 1}
+          totalQuestions={TOTAL_QUESTIONS}
+          question={questions[number].question}
+          answers={questions[number].answers}
+          userAnswer={userAnswers ? userAnswers[number] : undefined}
+          callback={checkAnswer}
+        />
+      )}
+
+      {/* Shown when NOT gameOver && NOT Loading  */}
+      {!gameOver &&
+      !loading &&
+      userAnswers.length === number + 1 &&
+      number !== TOTAL_QUESTIONS - 1 ? (
+        <button className='next' onClick={startTrivia}>
+          Next Question
+        </button>
+      ) : null}
     </div>
   );
 }
