@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { fetchQuizQuestions } from './API';
 import QuestionCard from './components/QuestionCard';
 import { Difficulty, QuestionState } from './API';
+import { GlobalStyle } from './App.styles';
 
 export type AnswerObject = {
   question: string;
@@ -69,45 +70,48 @@ function App() {
   };
 
   return (
-    <div className='App'>
-      <h1>TRIVIA QUIZ</h1>
+    <>
+      <GlobalStyle />
+      <div className='App'>
+        <h1>TRIVIA QUIZ</h1>
 
-      {/* Start button  is only displayed if the game is over ||or if the user has answered the last question*/}
-      {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-        <button className='start' onClick={startTrivia}>
-          START
-        </button>
-      ) : null}
+        {/* Start button  is only displayed if the game is over ||or if the user has answered the last question*/}
+        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+          <button className='start' onClick={startTrivia}>
+            START
+          </button>
+        ) : null}
 
-      {/* Show score only when tha game is not over */}
-      {!gameOver ? <p className='score'>Score: {score}</p> : null}
+        {/* Show score only when tha game is not over */}
+        {!gameOver ? <p className='score'>Score: {score}</p> : null}
 
-      {/* Show loading if the questions are still loading */}
-      {/* {loading ? <p>Loading Questions...</p> : null} */}
-      {loading && <p>Loading Questions...</p>}
+        {/* Show loading if the questions are still loading */}
+        {/* {loading ? <p>Loading Questions...</p> : null} */}
+        {loading && <p>Loading Questions...</p>}
 
-      {/* Question card will only be shown IF we're not loading or we're not gameOver */}
-      {!loading && !gameOver && (
-        <QuestionCard
-          questionNum={number + 1}
-          totalQuestions={TOTAL_QUESTIONS}
-          question={questions[number].question}
-          answers={questions[number].answers}
-          userAnswer={userAnswers ? userAnswers[number] : undefined}
-          callback={checkAnswer}
-        />
-      )}
+        {/* Question card will only be shown IF we're not loading or we're not gameOver */}
+        {!loading && !gameOver && (
+          <QuestionCard
+            questionNum={number + 1}
+            totalQuestions={TOTAL_QUESTIONS}
+            question={questions[number].question}
+            answers={questions[number].answers}
+            userAnswer={userAnswers ? userAnswers[number] : undefined}
+            callback={checkAnswer}
+          />
+        )}
 
-      {/* Shown when NOT gameOver && NOT Loading  */}
-      {!gameOver &&
-      !loading &&
-      userAnswers.length === number + 1 &&
-      number !== TOTAL_QUESTIONS - 1 ? (
-        <button className='next' onClick={nextQuestion}>
-          Next Question
-        </button>
-      ) : null}
-    </div>
+        {/* Shown when NOT gameOver && NOT Loading  */}
+        {!gameOver &&
+        !loading &&
+        userAnswers.length === number + 1 &&
+        number !== TOTAL_QUESTIONS - 1 ? (
+          <button className='next' onClick={nextQuestion}>
+            Next Question
+          </button>
+        ) : null}
+      </div>
+    </>
   );
 }
 
