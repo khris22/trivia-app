@@ -61,12 +61,12 @@ function App() {
 
   const nextQuestion = () => {
     // check if it's not the last question
-    const nextQuestion = number + 1;
+    const nextQ = number + 1;
 
-    if (nextQuestion === TOTAL_QUESTIONS) {
+    if (nextQ === TOTAL_QUESTIONS) {
       setGameOver(true);
     } else {
-      setNumber(nextQuestion);
+      setNumber(nextQ);
     }
   };
 
@@ -82,7 +82,7 @@ function App() {
       ) : null}
 
       {/* Show score only when tha game is not over */}
-      {!gameOver ? <p className='score'>Score:</p> : null}
+      {!gameOver ? <p className='score'>Score: {score}</p> : null}
 
       {/* Show loading if the questions are still loading */}
       {/* {loading ? <p>Loading Questions...</p> : null} */}
@@ -105,7 +105,7 @@ function App() {
       !loading &&
       userAnswers.length === number + 1 &&
       number !== TOTAL_QUESTIONS - 1 ? (
-        <button className='next' onClick={startTrivia}>
+        <button className='next' onClick={nextQuestion}>
           Next Question
         </button>
       ) : null}
