@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { fetchQuizQuestions } from './API';
 import QuestionCard from './components/QuestionCard';
 import { Difficulty, QuestionState } from './API';
-import { GlobalStyle } from './App.styles';
+import { GlobalStyle, Wrapper } from './App.styles';
 
 export type AnswerObject = {
   question: string;
@@ -72,7 +72,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <div className='App'>
+      <Wrapper>
         <h1>TRIVIA QUIZ</h1>
 
         {/* Start button  is only displayed if the game is over ||or if the user has answered the last question*/}
@@ -110,7 +110,7 @@ function App() {
             Next Question
           </button>
         ) : null}
-      </div>
+      </Wrapper>
     </>
   );
 }
