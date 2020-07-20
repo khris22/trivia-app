@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/trivia-app/static/js/main.920047bf.chunk.js",
+    "main.js.map": "/trivia-app/static/js/main.920047bf.chunk.js.map",
+    "runtime-main.js": "/trivia-app/static/js/runtime-main.51f2d099.js",
+    "runtime-main.js.map": "/trivia-app/static/js/runtime-main.51f2d099.js.map",
+    "static/js/2.67cd1655.chunk.js": "/trivia-app/static/js/2.67cd1655.chunk.js",
+    "static/js/2.67cd1655.chunk.js.map": "/trivia-app/static/js/2.67cd1655.chunk.js.map",
+    "index.html": "/trivia-app/index.html",
+    "precache-manifest.b7ebf0c2c99e003ca8a5465f04c64c01.js": "/trivia-app/precache-manifest.b7ebf0c2c99e003ca8a5465f04c64c01.js",
+    "service-worker.js": "/trivia-app/service-worker.js",
+    "static/js/2.67cd1655.chunk.js.LICENSE.txt": "/trivia-app/static/js/2.67cd1655.chunk.js.LICENSE.txt",
+    "static/media/zach-lucero.jpg": "/trivia-app/static/media/zach-lucero.cab9194d.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.51f2d099.js",
+    "static/js/2.67cd1655.chunk.js",
+    "static/js/main.920047bf.chunk.js"
+  ]
+}
