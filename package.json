@@ -1,7 +1,7 @@
 {
   "name": "trivia-app",
   "version": "0.1.0",
-  "homepage": "http://khris22.github.io/trivia-app",
+  "homepage": "https://khris22.github.io/trivia-app",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
